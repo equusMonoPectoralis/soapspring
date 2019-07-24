@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://wsdl.siri.org.uk" 
+xmlns:siri="http://www.siri.org.uk/siri" 
+xmlns:tns="http://wsdl.siri.org.uk" elementFormDefault="unqualified" >
+	
+	<xs:element name="CheckStatus">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name= "Request" type="tns:Request"/>
+			</xs:sequence>	
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="Request">
+		<xs:sequence>
+			<xs:element name="RequestTimestamp" type="xs:string"></xs:element>
+			<xs:element name="RequestorRef" type="xs:string"></xs:element>
+			<xs:element name="MessageIdentifier" type="xs:string"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	<xs:element name="CheckStatusResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name= "CheckStatusAnswerInfo" type="tns:CheckStatusAnswerInfo" />
+				<xs:element name="Answer" type="tns:Answer" ></xs:element>
+			</xs:sequence>	
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="CheckStatusAnswerInfo" >
+		<xs:sequence>
+			<xs:element name="ResponseTimestamp" type="xs:string"/>
+			<xs:element name="ProducerRef" type="xs:string"/>
+			<xs:element name="ResponseMessageIdentifier" type="xs:string"/>
+			<xs:element name="RequestMessageRef" type="xs:string"/>
+			
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Answer">
+		<xs:sequence>
+			<xs:element name="Status" type="xs:string"/>
+			<xs:element name="ServiceStartedTime" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>
+
+
+
